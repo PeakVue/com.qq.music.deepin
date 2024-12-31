@@ -3,10 +3,10 @@ version: "1"
 package:
   id: com.qq.music.deepin
   name: com.qq.music.deepin
-  version: 1.0.0.0
+  version: 1.0.0.1
   kind: app
   description: |
-    com.qq.music.deepin_20.22deepin2_amd64
+    com.qq.music.deepin_20.22deepin5_amd64
 
 base: org.deepin.base.wine/23.2.0
 runtime: org.deepin.runtime.wine/23.2.1
@@ -16,13 +16,13 @@ command:
 
 sources:
   - kind: file
-    url: https://aptly.uniontech.com/pkg/nonfree-eagle/release-candidate/d2luZTgtcnVudGltZTIyMDI0LTA5LTAzIDEzOjE1OjAx/pool/non-free/c/com.qq.music.deepin/com.qq.music.deepin_20.22deepin2_amd64.deb
-    digest: b78fee84a6b33f040a5f4bddda341a87e9a4921914545e64668731977d09a187
+    url: https://winedata-dev.deepin.com/apps/com.qq.music.deepin/1efbee7/signed_com.qq.music.deepin_20.22deepin5_amd64.deb
+    digest: c3eb322ab379d935d69300556cf545d3a7336e0646c0733fbabdb18c1d6f1e07
 
 build: |
   set -x
   SOURCES="linglong/sources"
-  dpkg-deb -x $SOURCES/com.qq.music.deepin_20.22deepin2_amd64.deb $SOURCES/com.qq.music.deepin
+  dpkg-deb -x $SOURCES/signed_com.qq.music.deepin_20.22deepin5_amd64.deb $SOURCES/com.qq.music.deepin
   # run.sh替换
   FILE_PATH="$SOURCES/com.qq.music.deepin/opt/apps/com.qq.music.deepin/files/run.sh" 
   sed -i -e 's|/opt/deepin-wine8-stable|/runtime/deepin-wine8-stable|g' \
